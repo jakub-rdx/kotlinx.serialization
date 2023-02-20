@@ -24,7 +24,6 @@ import kotlinx.serialization.json.internal.JsonDecodingException
  * assertEquals(JsonObject(mapOf("key" to JsonLiteral(1.0))), literal)
  * ```
  */
-@Serializer(forClass = JsonElement::class)
 @PublishedApi
 internal object JsonElementSerializer : KSerializer<JsonElement> {
     override val descriptor: SerialDescriptor =
@@ -56,7 +55,7 @@ internal object JsonElementSerializer : KSerializer<JsonElement> {
  * External [Serializer] object providing [SerializationStrategy] and [DeserializationStrategy] for [JsonPrimitive].
  * It can only be used by with [Json] format an its input ([JsonDecoder] and [JsonEncoder]).
  */
-@Serializer(forClass = JsonPrimitive::class)
+
 @PublishedApi
 internal object JsonPrimitiveSerializer : KSerializer<JsonPrimitive> {
     override val descriptor: SerialDescriptor =
@@ -82,7 +81,6 @@ internal object JsonPrimitiveSerializer : KSerializer<JsonPrimitive> {
  * External [Serializer] object providing [SerializationStrategy] and [DeserializationStrategy] for [JsonNull].
  * It can only be used by with [Json] format an its input ([JsonDecoder] and [JsonEncoder]).
  */
-@Serializer(forClass = JsonNull::class)
 @PublishedApi
 internal object JsonNullSerializer : KSerializer<JsonNull> {
     // technically, JsonNull is an object, but it does not call beginStructure/endStructure at all
@@ -145,7 +143,6 @@ private object JsonLiteralSerializer : KSerializer<JsonLiteral> {
  * External [Serializer] object providing [SerializationStrategy] and [DeserializationStrategy] for [JsonObject].
  * It can only be used by with [Json] format an its input ([JsonDecoder] and [JsonEncoder]).
  */
-@Serializer(forClass = JsonObject::class)
 @PublishedApi
 internal object JsonObjectSerializer : KSerializer<JsonObject> {
 
@@ -171,7 +168,6 @@ internal object JsonObjectSerializer : KSerializer<JsonObject> {
  * External [Serializer] object providing [SerializationStrategy] and [DeserializationStrategy] for [JsonArray].
  * It can only be used by with [Json] format an its input ([JsonDecoder] and [JsonEncoder]).
  */
-@Serializer(forClass = JsonArray::class)
 @PublishedApi
 internal object JsonArraySerializer : KSerializer<JsonArray> {
 
